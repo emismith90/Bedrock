@@ -5,11 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="UoW\" />
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Bedrock.Data\Bedrock.Data.csproj" />
     <ProjectReference Include="..\Bedrock.Domain\Bedrock.Domain.csproj" />
   </ItemGroup>
