@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="UoW\" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bedrock.Data\Bedrock.Data.csproj" />
+    <ProjectReference Include="..\Bedrock.Domain\Bedrock.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
