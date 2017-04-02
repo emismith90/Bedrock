@@ -5,6 +5,6 @@ namespace Bedrock.Domain.Repositories
 {
     public interface ITodoRepository : IGenericRepository<Todo, Guid> 
     {
-        void SetStatus(Guid id, Status status);
+        void SetStatus(Guid id, bool isActive);
     }
 }

@@ -13,10 +13,10 @@ namespace Bedrock.Domain.EF.Repositories
         {
         }
 
-        public void SetStatus(Guid id, Status status)
+        public void SetStatus(Guid id, bool isActive)
         {
             var todoItem = this.GetById(id);
-            todoItem.Status = status;
+            todoItem.IsActive = isActive;
 
             this.Update(todoItem);
         }

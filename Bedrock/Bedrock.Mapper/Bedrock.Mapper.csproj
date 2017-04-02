@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Bedrock.Data\Bedrock.Data.csproj" />
     <ProjectReference Include="..\Bedrock.Domain.EF\Bedrock.Domain.EF.csproj" />
     <ProjectReference Include="..\Bedrock.Domain\Bedrock.Domain.csproj" />

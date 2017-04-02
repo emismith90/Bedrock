@@ -1,8 +1,7 @@
 ﻿using Bedrock.Data.Contexts;
 using Bedrock.Domain.UoW;
+using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Bedrock.Domain.EF.UoW
 {

@@ -7,7 +7,11 @@
   <ItemGroup>
     <Folder Include="Cache\" />
     <Folder Include="Extensions\" />
-    <Folder Include="IoC\" />
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="1.1.0" />
   </ItemGroup>
 
 </Project>

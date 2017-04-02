@@ -16,8 +16,8 @@ namespace Bedrock.Data.TypeBuilders
                 .HasColumnType("nvarchar(100)")
                 .HasMaxLength(255);
 
-            builder.Property(c => c.Status)
-               .HasColumnType("tinyint")
+            builder.Property(c => c.IsActive)
+               .HasColumnType("bit")
                .IsRequired();
         }
     }

@@ -7,13 +7,12 @@ using Microsoft.Extensions.Logging;
 using Bedrock.Infrastructure.IoC;
 using Bedrock.Infrastructure.IoC.Autofac;
 
-namespace Bedrock
+namespace Bedrock.API
 {
     public class Startup
     {
         public IConfigurationRoot Configuration { get; }
         public IApplicationContainerManager ContainerManager { get; private set; }
-
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -24,11 +23,10 @@ namespace Bedrock
             Configuration = builder.Build();
         }
 
-        // ConfigureServices is where you register dependencies. This gets
-        // called by the runtime before the Configure method, below.
+        // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            // Add services to the collection.
+            // Add framework services.
             services.AddMvc();
 
             // Create the IServiceProvider based on the container.
@@ -42,24 +40,7 @@ namespace Bedrock
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
-
-            app.UseStaticFiles();
-
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseMvc();
 
             // If you want to dispose of resources that have been resolved in the
             // application container, register for the "ApplicationStopped" event.

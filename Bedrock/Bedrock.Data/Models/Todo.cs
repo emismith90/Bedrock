@@ -9,12 +9,6 @@ namespace Bedrock.Data.Models
         protected Todo() { }
 
         public string Title { get; set; }
-        public Status Status { get; set; }
-    }
-
-    public enum Status
-    {
-        Active,
-        Done
+        public bool IsActive { get; set; }
     }
 }

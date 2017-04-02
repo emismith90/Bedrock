@@ -5,21 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Feature1\" />
-    <Folder Include="Feature2\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.4.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.0.0" />
     <PackageReference Include="AutoMapper" Version="6.0.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bedrock.Data\Bedrock.Data.csproj" />
-    <ProjectReference Include="..\Bedrock.Domain.EF\Bedrock.Domain.EF.csproj" />
-    <ProjectReference Include="..\Bedrock.Domain\Bedrock.Domain.csproj" />
-    <ProjectReference Include="..\Bedrock.Dto\Bedrock.Dto.csproj" />
     <ProjectReference Include="..\Bedrock.Infrastructure\Bedrock.Infrastructure.csproj" />
     <ProjectReference Include="..\Bedrock.Mapper\Bedrock.Mapper.csproj" />
+    <ProjectReference Include="..\Bedrock.Services\Bedrock.Services.csproj" />
   </ItemGroup>
 
 </Project>
