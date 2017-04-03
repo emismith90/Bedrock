@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bedrock.Domain.Abstract\Bedrock.Domain.Abstract.csproj" />
     <ProjectReference Include="..\Bedrock.Domain.Data\Bedrock.Domain.Data.csproj" />
   </ItemGroup>
 

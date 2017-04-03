@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using Bedrock.Mapper;
+using Bedrock.Application.Mapper;
 
 namespace Bedrock.Infrastructure.IoC.Autofac.Modules
 {
@@ -7,7 +7,7 @@ namespace Bedrock.Infrastructure.IoC.Autofac.Modules
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterAssemblyTypes(System.Reflection.Assembly.Load(new System.Reflection.AssemblyName("Bedrock.Services")))
+            builder.RegisterAssemblyTypes(System.Reflection.Assembly.Load(new System.Reflection.AssemblyName("Bedrock.Application.Services.Abstract")), System.Reflection.Assembly.Load(new System.Reflection.AssemblyName("Bedrock.Application.Services")))
                    .Where(t => t.Name.EndsWith("Service"))
                    .AsImplementedInterfaces()
                    .InstancePerLifetimeScope();

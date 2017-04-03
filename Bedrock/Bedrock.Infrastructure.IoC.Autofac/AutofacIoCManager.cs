@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Autofac;
 using Microsoft.Extensions.DependencyInjection;
+using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Bedrock.Infrastructure.IoC.Autofac.Modules;
 

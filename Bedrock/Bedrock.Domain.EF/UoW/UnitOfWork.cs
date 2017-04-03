@@ -1,7 +1,6 @@
-﻿using Bedrock.Data.Contexts;
-using Bedrock.Domain.UoW;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
+using Bedrock.Domain.Data.Contexts;
+using Bedrock.Domain.Abstract.UoW;
 
 namespace Bedrock.Domain.EF.UoW
 {

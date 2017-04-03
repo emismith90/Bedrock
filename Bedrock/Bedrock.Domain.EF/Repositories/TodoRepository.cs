@@ -1,13 +1,11 @@
-﻿using Bedrock.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Bedrock.Data.Contexts;
-using Bedrock.Domain.Repositories;
+﻿using System;
+using Bedrock.Domain.Data.Contexts;
+using Bedrock.Domain.Abstract.Repositories;
+using Bedrock.Domain.Data.Models;
 
 namespace Bedrock.Domain.EF.Repositories
 {
-    public class TodoRepository : GenericRepository<Todo, Guid>, ITodoRepository
+    public class TodoRepository : GenericRepository<TodoEntity, Guid>, ITodoRepository
     {
         public TodoRepository(BedrockContext context) : base(context)
         {

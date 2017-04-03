@@ -1,9 +1,9 @@
 ﻿using Autofac;
-using Bedrock.Data.Contexts;
+using Bedrock.Domain.Data.Contexts;
 using Bedrock.Domain.EF.Repositories;
 using Bedrock.Domain.EF.UoW;
-using Bedrock.Domain.Repositories;
-using Bedrock.Domain.UoW;
+using Bedrock.Domain.Abstract.Repositories;
+using Bedrock.Domain.Abstract.UoW;
 
 namespace Bedrock.Infrastructure.IoC.Autofac.Modules
 {
@@ -11,7 +11,7 @@ namespace Bedrock.Infrastructure.IoC.Autofac.Modules
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterAssemblyTypes(System.Reflection.Assembly.Load(new System.Reflection.AssemblyName("Bedrock.Domain")), System.Reflection.Assembly.Load(new System.Reflection.AssemblyName("Bedrock.Domain.EF")))
+            builder.RegisterAssemblyTypes(System.Reflection.Assembly.Load(new System.Reflection.AssemblyName("Bedrock.Domain.Abstract")), System.Reflection.Assembly.Load(new System.Reflection.AssemblyName("Bedrock.Domain.EF")))
                  .Where(t => t.Name.EndsWith("Repository"))
                  .AsImplementedInterfaces()
                  .InstancePerLifetimeScope();
