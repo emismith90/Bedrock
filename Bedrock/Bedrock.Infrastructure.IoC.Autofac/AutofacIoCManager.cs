@@ -35,8 +35,9 @@ namespace Bedrock.Infrastructure.IoC.Autofac
             // the collection, and build the container. If you want
             // to dispose of the container at the end of the app,
             // be sure to keep a reference to it as a property or field.
-            builder.RegisterModule(new DomainDependencyRegistration());
-            builder.RegisterModule(new ApplicationDependencyRegistration());
+            builder.RegisterModule(new InfrastructureModule());
+            builder.RegisterModule(new DomainModule());
+            builder.RegisterModule(new ApplicationModule());
 
             return builder;
         }

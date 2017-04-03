@@ -3,7 +3,7 @@ using Bedrock.Application.Mapper;
 
 namespace Bedrock.Infrastructure.IoC.Autofac.Modules
 {
-    public class ApplicationDependencyRegistration : Module
+    public class ApplicationModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {

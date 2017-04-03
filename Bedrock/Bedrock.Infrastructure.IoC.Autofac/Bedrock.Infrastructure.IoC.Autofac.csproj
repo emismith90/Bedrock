@@ -17,6 +17,7 @@
     <ProjectReference Include="..\Bedrock.Application.Services\Bedrock.Application.Services.csproj" />
     <ProjectReference Include="..\Bedrock.Domain.Abstract\Bedrock.Domain.Abstract.csproj" />
     <ProjectReference Include="..\Bedrock.Domain.Data\Bedrock.Domain.Data.csproj" />
+    <ProjectReference Include="..\Bedrock.Infrastructure.Caching.Memory\Bedrock.Infrastructure.Caching.Memory.csproj" />
     <ProjectReference Include="..\Bedrock.Infrastructure\Bedrock.Infrastructure.csproj" />
   </ItemGroup>
 

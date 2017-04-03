@@ -7,7 +7,7 @@ using Bedrock.Domain.Abstract.UoW;
 
 namespace Bedrock.Infrastructure.IoC.Autofac.Modules
 {
-    public class DomainDependencyRegistration : Module
+    public class DomainModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {

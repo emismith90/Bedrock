@@ -8,6 +8,7 @@ using Bedrock.Application.Model;
 using Bedrock.Domain.Abstract.UoW;
 using Bedrock.Domain.Abstract.Repositories;
 using Bedrock.Domain.Data.Models;
+using Bedrock.Infrastructure.Caching.Abstract;
 
 namespace Bedrock.Application.Services.Sample
 {
@@ -17,7 +18,7 @@ namespace Bedrock.Application.Services.Sample
 
         public TodoService(IMapper mapper,
                            IUnitOfWork unitOfWork,
-                           IMemoryCache cache,
+                           IBedrockCache cache,
                            ITodoRepository repository) 
             : base(mapper, unitOfWork, cache)
         {
