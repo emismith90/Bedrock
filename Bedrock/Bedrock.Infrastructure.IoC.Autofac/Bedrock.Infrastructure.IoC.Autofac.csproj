@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.4.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.0.0" />
+    <PackageReference Include="AutoMapper" Version="6.0.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bedrock.Application.Mapper\Bedrock.Application.Mapper.csproj" />
+    <ProjectReference Include="..\Bedrock.Application.Services.Abstract\Bedrock.Application.Services.Abstract.csproj" />
+    <ProjectReference Include="..\Bedrock.Application.Services\Bedrock.Application.Services.csproj" />
+    <ProjectReference Include="..\Bedrock.Domain.Abstract\Bedrock.Domain.Abstract.csproj" />
+    <ProjectReference Include="..\Bedrock.Domain.Data\Bedrock.Domain.Data.csproj" />
+    <ProjectReference Include="..\Bedrock.Infrastructure.Caching.Memory\Bedrock.Infrastructure.Caching.Memory.csproj" />
+    <ProjectReference Include="..\Bedrock.Infrastructure\Bedrock.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bedrock.Application.Model\Bedrock.Application.Model.csproj" />
+    <ProjectReference Include="..\Bedrock.Domain.Data\Bedrock.Domain.Data.csproj" />
+    <ProjectReference Include="..\Bedrock.Domain.EF\Bedrock.Domain.EF.csproj" />
+  </ItemGroup>
+
+</Project>
