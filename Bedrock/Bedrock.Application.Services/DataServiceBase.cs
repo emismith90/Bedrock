@@ -15,6 +15,7 @@ namespace Bedrock.Application.Services
         {
             this.Mapper = mapper;
             this.UnitOfWork = unitOfWork;
+            this.Cache = cache;
         }
     }
 }

@@ -14,4 +14,8 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Bedrock.Infrastructure\Bedrock.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

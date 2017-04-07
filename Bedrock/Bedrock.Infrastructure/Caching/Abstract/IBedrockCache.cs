@@ -5,15 +5,18 @@ namespace Bedrock.Infrastructure.Caching.Abstract
 {
     public interface IBedrockCache 
     {
-        IEnumerable<string> GetAllKeys();
+        IList<string> GetAllKeys();
+        IList<string> FindKeys(string startWith);
 
+        T Get<T>(string key);
         bool TryGet<T>(string key, out T value);
 
-        bool Set<T>(string key, T value, string parentKey = null);
-        bool Set<T>(string key, T value, DateTime expiresAt, string parentKey = null);
-        bool Set<T>(string key, T value, TimeSpan expiresIn, string parentKey = null);
+        bool Set<T>(string key, T value);
+        bool Set<T>(string key, T value, DateTime expiresAt);
+        bool Set<T>(string key, T value, TimeSpan expiresIn);
+        bool Set<T>(string key, T value, CacheEntryOptions options);
 
-        bool Flush(string key);
-        bool FlushAll();
+        void Flush(string key);
+        void FlushAll();
     }
 }
