@@ -1,26 +1,25 @@
 ﻿using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Serilog;
 using Bedrock.Infrastructure.IoC;
 using Bedrock.Infrastructure.IoC.Autofac;
+using Bedrock.Infrastructure.Logger;
 
 namespace Bedrock.API
 {
     public class Startup
     {
-        public IConfigurationRoot Configuration { get; }
         public IApplicationContainerManager ContainerManager { get; private set; }
         public Startup(IHostingEnvironment env)
         {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddEnvironmentVariables();
-            Configuration = builder.Build();
+            Log.Logger = new LoggerConfiguration()
+               .MinimumLevel.Is(Serilog.Events.LogEventLevel.Debug)
+               .Enrich.FromLogContext()
+               .WriteTo.Seq("http://localhost:5341")
+               .CreateLogger();
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -37,10 +36,12 @@ namespace Bedrock.API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IApplicationLifetime appLifetime)
+        public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory, IApplicationLifetime appLifetime, IBedrockLogManager bedrockLogManager)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
+            //loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            //loggerFactory.AddDebug();
+
+            loggerFactory.AddSerilog(bedrockLogManager.CreateLogger());
 
             app.UseMvc();
 

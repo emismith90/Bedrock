@@ -4,6 +4,7 @@ using Bedrock.Infrastructure.Caching.Abstract;
 using Bedrock.Infrastructure.Caching.Memory;
 using Bedrock.Infrastructure.Configuration;
 using Bedrock.Infrastructure.Configuration.Options;
+using Bedrock.Infrastructure.Logger;
 
 namespace Bedrock.Infrastructure.IoC.Autofac.Modules
 {
@@ -11,6 +12,24 @@ namespace Bedrock.Infrastructure.IoC.Autofac.Modules
     {
         protected override void Load(ContainerBuilder builder)
         {
+            // Configuration
+            builder.RegisterType<AppSettings>()
+               .As<IAppSetting>()
+               .SingleInstance();
+
+            builder.RegisterType<ConnectionStringsOptions>()
+                .SingleInstance();
+            builder.RegisterType<LoggingOptions>()
+                .SingleInstance();
+            builder.RegisterType<CachingOptions>()
+                .SingleInstance();
+
+            // Logging
+            builder.RegisterType<BedrockLogManager>()
+                 .As<IBedrockLogManager>()
+                 .SingleInstance();
+            
+            // Caching
             builder.RegisterType<MemoryCache>()
                .As<IMemoryCache>()
                .SingleInstance();
@@ -18,17 +37,6 @@ namespace Bedrock.Infrastructure.IoC.Autofac.Modules
             builder.RegisterType<BedrockMemoryCache>()
                .As<IBedrockCache>()
                .SingleInstance();
-
-            var appSettings = new AppSettings();
-            builder.RegisterInstance(appSettings)
-               .As<IAppSetting>()
-               .SingleInstance();
-
-            builder.RegisterType<CachingOptions>()
-                .SingleInstance();
-
-            builder.RegisterType<ConnectionStringsOptions>()
-                .SingleInstance();
         }
     }
 }
