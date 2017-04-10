@@ -13,17 +13,15 @@ namespace Bedrock.Domain.Data.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.1.1")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "1.1.1");
 
-            modelBuilder.Entity("Bedrock.Domain.Data.Models.Todo", b =>
+            modelBuilder.Entity("Bedrock.Domain.Data.Models.TodoEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<Guid?>("CreatedBy")
-                        .HasColumnName("CreatedBy")
-                        .HasColumnType("UNIQUEIDENTIFIER");
+                        .HasColumnName("CreatedBy");
 
                     b.Property<DateTime?>("CreatedOn")
                         .HasColumnName("CreatedOn")
@@ -33,8 +31,7 @@ namespace Bedrock.Domain.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<Guid?>("ModifiedBy")
-                        .HasColumnName("ModifiedBy")
-                        .HasColumnType("UNIQUEIDENTIFIER");
+                        .HasColumnName("ModifiedBy");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnName("ModifiedOn")
