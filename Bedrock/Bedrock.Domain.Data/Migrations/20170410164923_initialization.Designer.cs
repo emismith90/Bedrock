@@ -8,23 +8,21 @@ using Bedrock.Domain.Data.Contexts;
 namespace Bedrock.Domain.Data.Migrations
 {
     [DbContext(typeof(BedrockContext))]
-    [Migration("20170402182940_20170403-auditablefieldnullable")]
-    partial class _20170403auditablefieldnullable
+    [Migration("20170410164923_initialization")]
+    partial class initialization
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.1.1")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "1.1.1");
 
-            modelBuilder.Entity("Bedrock.Domain.Data.Models.Todo", b =>
+            modelBuilder.Entity("Bedrock.Domain.Data.Models.TodoEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<Guid?>("CreatedBy")
-                        .HasColumnName("CreatedBy")
-                        .HasColumnType("UNIQUEIDENTIFIER");
+                        .HasColumnName("CreatedBy");
 
                     b.Property<DateTime?>("CreatedOn")
                         .HasColumnName("CreatedOn")
@@ -34,8 +32,7 @@ namespace Bedrock.Domain.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<Guid?>("ModifiedBy")
-                        .HasColumnName("ModifiedBy")
-                        .HasColumnType("UNIQUEIDENTIFIER");
+                        .HasColumnName("ModifiedBy");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnName("ModifiedOn")

@@ -11,16 +11,14 @@ namespace Bedrock.Domain.Data.TypeBuilders
         public virtual void Configure(EntityTypeBuilder<TEntity> builder)
         {
             builder.Property(c => c.CreatedBy)
-                .HasColumnName("CreatedBy")
-                .HasColumnType("UNIQUEIDENTIFIER");
+                .HasColumnName("CreatedBy");
 
             builder.Property(c => c.CreatedOn)
                .HasColumnName("CreatedOn")
                .HasColumnType("datetime");
 
             builder.Property(c => c.ModifiedBy)
-                .HasColumnName("ModifiedBy")
-                .HasColumnType("UNIQUEIDENTIFIER");
+                .HasColumnName("ModifiedBy");
 
             builder.Property(c => c.ModifiedOn)
                .HasColumnName("ModifiedOn")

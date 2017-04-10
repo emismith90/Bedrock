@@ -1,22 +1,14 @@
-﻿using System.IO;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.EntityFrameworkCore;
 using Bedrock.Domain.Data.Models;
 using Bedrock.Domain.Data.TypeBuilders;
 using Bedrock.Domain.Data.TypeBuilders.Extensions;
-using Bedrock.Infrastructure.Configuration.Options;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace Bedrock.Domain.Data.Contexts
 {
     public class BedrockContext : DbContext
     {
-        private readonly ConnectionStringsOptions _connectionStringsOptions;
-
-        public BedrockContext(ConnectionStringsOptions connectionStringsOptions)
-        {
-            _connectionStringsOptions = connectionStringsOptions;
-        }
-
         public DbSet<TodoEntity> Todos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -28,7 +20,12 @@ namespace Bedrock.Domain.Data.Contexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(_connectionStringsOptions.BedrockConnection);
+            var config = new ConfigurationBuilder()
+               .SetBasePath(Directory.GetCurrentDirectory())
+               .AddJsonFile("appsettings.json")
+               .Build();
+
+            optionsBuilder.UseMySql(config.GetConnectionString("BedrockConnection"));
         }
     }
 }
